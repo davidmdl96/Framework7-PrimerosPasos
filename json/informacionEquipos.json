@@ -1,0 +1,309 @@
+        {
+            "Equipos":[
+                    {         
+                        "local":"U1",
+                        "location":"Estadio La ceramica",
+                        "Jugadores":[
+                            {
+                                    "nombre":"David",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+
+                            {
+                                    "nombre":"pepe",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+                            
+                            {
+                                    "nombre":"jose",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+                            
+
+                            {
+                                    "nombre":"manolo",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+                            
+
+                            
+                            {
+                                    "nombre":"alex",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            }
+                            
+                        
+                    ]
+                    },
+
+                    {         
+                        "local":"U2",
+                        "location":"camp nou",
+                        "Jugadores":[
+                            {
+                                    "nombre":"David",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+
+                            {
+                                    "nombre":"pepe",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+                            
+                            {
+                                    "nombre":"jose",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+                            
+
+                            {
+                                    "nombre":"manolo",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+                            
+
+                            
+                            {
+                                    "nombre":"alex",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            }
+                            
+                        
+                    ]
+                    },
+
+                    {         
+                        "local":"U3",
+                        "location":"camp nou",
+                        "Jugadores":[
+                            {
+                                    "nombre":"David",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+
+                            {
+                                    "nombre":"pepe",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+                            
+                            {
+                                    "nombre":"jose",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+                            
+
+                            {
+                                    "nombre":"manolo",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+                            
+
+                            
+                            {
+                                    "nombre":"alex",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            }
+                            
+                        
+                    ]
+                    },
+
+                    {         
+                        "local":"U4",
+                        "location":"camp nou",
+                        "Jugadores":[
+                            {
+                                    "nombre":"David",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+
+                            {
+                                    "nombre":"pepe",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+                            
+                            {
+                                    "nombre":"jose",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+                            
+
+                            {
+                                    "nombre":"manolo",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+                            
+
+                            
+                            {
+                                    "nombre":"alex",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            }
+                            
+                        
+                    ]
+                    },
+
+                    {         
+                        "local":"U5",
+                        "location":"camp nou",
+                        "Jugadores":[
+                            {
+                                    "nombre":"David",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+
+                            {
+                                    "nombre":"pepe",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+                            
+                            {
+                                    "nombre":"jose",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+                            
+
+                            {
+                                    "nombre":"manolo",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            },
+                            
+
+                            
+                            {
+                                    "nombre":"alex",
+                                    "apellidos":"Muñoz De Luna",
+                                    "posicion":"Delantero",
+                                    "Edad":"22",
+                                    "Pais":"Spain",
+                                    "Dorsal":"7"
+                                    
+                            }
+                            
+                        
+                    ]
+                    }
+                  
+            ]
+    }

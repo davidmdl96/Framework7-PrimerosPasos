@@ -1,0 +1,130 @@
+{
+"partidos":[
+    {
+        "septiembre":[
+            {         
+                "fecha":"9/01",
+                "local":"U1",
+                "visitante":"U4",
+                "location":"AJ Katzenmaier",
+                "hora": "9:30 a.m"
+                },
+              {
+                "fecha":"9/01",
+                "local":"U3",
+                "visitante":"U2",
+                "location":"Greenbay",
+                "hora": "1:00 p.m."
+              },
+              {
+                "fecha":"9/08",
+                "local":"U5",
+                "visitante":"U6",
+                "location":"Howard A Yeager",
+                "hora": "9:30 a.m."
+              },
+              {          
+                "fecha":"9/08",
+                "local":"U6",
+                "visitante":"U1",
+                "location":"Marjorie P Hart",
+                "hora": "1:00 p.m."
+              },
+              {
+                "fecha":"9/15",
+                "local":"U2",
+                "visitante":"U4",
+                "location":"North",
+                "hora": "9:30 a.m."
+              },
+              {
+                "fecha":"9/15",
+                "local":"U3",
+                "visitante":"U5",
+                "location":"AJ Katzenmaier",
+                "hora": "1:00 p.m."
+              },
+              {
+                "fecha":"9/22",
+                "local":"U1",
+                "visitante":"U3",
+                "location":"South",
+                "hora": "9:30 a.m."
+              },
+              {
+                "fecha":"9/22",
+                "local":"U2",
+                "visitante":"U6",
+                "location":"Howard A Yeager",
+                "hora": "1:00 p.m."
+              },
+              {
+                "fecha":"9/29",
+                "local":"U4",
+                "visitante":"U5",
+                "location":"Greenbay",
+                "hora": "9:30 a.m."
+              }
+        ],
+        "octubre":[
+            {
+                "fecha":"10/6",
+                "local":"U2",
+                "visitante":"U5",
+                "location":"Marjorie P Hart",
+                "hora": "9:30 a.m."
+              },
+              {
+                "fecha":"10/6",
+                "local":"U1",
+                "visitante":"U6",
+                "location":"South",
+                "hora": "1:00 p.m."
+              },
+              {
+                "fecha":"10/13",
+                "local":"U3",
+                "visitante":"U4",
+                "location":"Howard A Yeager",
+                "hora": "9:30 a.m."
+              },
+              {
+                "fecha":"10/13",
+                "local":"U5",
+                "visitante":"U1",
+                "location":"Greenbay",
+                "hora": "1:00 p.m."
+              },
+              {
+                "fecha":"10/20",
+                "local":"U6",
+                "visitante":"U3",
+                "location":"North",
+                "hora": "9:30 a.m."
+              },
+              {
+                "fecha":"10/20",
+                "local":"U2",
+                "visitante":"U4",
+                "location":"Marjorie P Hart",
+                "hora": "1:00 p.m."
+              },
+              {
+                "fecha":"10/27",
+                "local":"U3",
+                "visitante":"U1",
+                "location":"AJ Katzenmaier",
+                "hora": "9:30 a.m."
+              },
+              {
+                "fecha":"10/27",
+                "local":"U5",
+                "visitante":"U6",
+                "location":"Howard A Yeager",
+                "hora": "1:00 p.m."
+              }
+        ]
+    }
+]
+
+}

@@ -1,0 +1,79 @@
+<template>
+  <div class="page" data-name="escogerEquipo">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link icon-only panel-open" data-panel="left">
+            <i class="icon f7-icons ios-only">menu</i>
+            <i class="icon material-icons md-only">menu</i>
+          </a>
+        </div>
+        <div class="title">Escoger Equipo</div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="block-title">Página escoger partido</div>
+      <div class="block block-strong">
+        <div class="list links-list card">
+          <ul>
+            {{#each septiembre}}
+            <li>
+              <a href="/infoPartido/0/septiembre/{{@index}}">{{local}} vs {{visitante}}</a>
+            </li>
+            {{/each}}
+            {{#each octubre}}
+            <li>
+              <a href="/infoPartido/0/octubre/{{@index}}">{{local}} vs {{visitante}}</a>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  return {
+
+    // Component Data
+    data: function () {
+      // Must return an object
+
+    },
+    // Component Methods
+    methods: {
+      openAlert: function () {
+        var self = this;
+        self.$app.dialog.alert('Hello World');
+      },
+    },
+    // Page Events
+    on: {
+
+
+      pageMounted: function (e, page) {
+        console.log('pageMounted', page);
+      },
+      pageInit: function (e, page) {
+        console.log('pageInit', page);
+      },
+      pageBeforeIn: function (e, page) {
+        console.log('pageBeforeIn', page);
+      },
+      pageAfterIn: function (e, page) {
+        console.log('pageAfterIn', page);
+      },
+      pageBeforeOut: function (e, page) {
+        //app.dialog.alert('Hello World!');
+        console.log('pageBeforeOut', page);
+      },
+      pageAfterOut: function (e, page) {
+        console.log('pageAfterOut', page);
+      },
+      pageBeforeRemove: function (e, page) {
+        console.log('pageBeforeRemove', page);
+      },
+    }
+  }
+</script>

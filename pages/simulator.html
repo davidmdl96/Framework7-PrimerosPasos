@@ -1,0 +1,190 @@
+<template>
+    <div class="page" data-name="infoPartido">
+        <div class="navbar">
+            <div class="navbar-inner sliding">
+                <div class="left">
+                    <a href="#" class="link icon-only panel-open" data-panel="left">
+                        <i class="icon f7-icons ios-only">menu</i>
+                        <i class="icon material-icons md-only">menu</i>
+                    </a>
+                </div>
+                <div class="title">Simulator</div>
+            </div>
+        </div>
+        <!-- Contenido -->
+        <div class="page-content">
+            <div class="block block-strong">
+                <div class="title">Pedidos</div>
+            </div>
+            <form id="misPedidos">
+                <div class="list media-list">
+                    <ul>
+                        <li>
+                            <label class="item-checkbox item-content">
+                                <input type="checkbox" name="demo-media-checkbox" value="Pedido 1 ok" data-value="25" />
+                                <i class="icon icon-checkbox"></i>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">Ader</div>
+                                        <div class="item-after">17:14</div>
+                                    </div>
+                                    <div class="item-subtitle">Pedido 1</div>
+                                    <div class="item-text">Lorem ipsum...</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="item-checkbox item-content">
+                                <input type="checkbox" name="demo-media-checkbox" value="Pedido 2 ok" data-value="25" />
+                                <i class="icon icon-checkbox"></i>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">Ader</div>
+                                        <div class="item-after">17:11</div>
+                                    </div>
+                                    <div class="item-subtitle">Pedido 2</div>
+                                    <div class="item-text">Lorem ipsum...</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="item-checkbox item-content">
+                                <input type="checkbox" name="demo-media-checkbox" value="Pedido 3 ok" data-value="25" />
+                                <i class="icon icon-checkbox"></i>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">Ader</div>
+                                        <div class="item-after">16:48</div>
+                                    </div>
+                                    <div class="item-subtitle">Pedido 3</div>
+                                    <div class="item-text">Lorem ipsum...</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="item-checkbox item-content">
+                                <input type="checkbox" name="demo-media-checkbox" value="Pedido 4 ok" data-value="25" />
+                                <i class="icon icon-checkbox"></i>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">Ader</div>
+                                        <div class="item-after">15:32</div>
+                                    </div>
+                                    <div class="item-subtitle">Pedido 4</div>
+                                    <div class="item-text">Lorem ipsum...</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block block-strong text-align-center">
+                    <!-- we will init this gauge in JavaScript -->
+                    <div class="gauge demo-gauge"></div>
+                </div>
+            </form>
+            <!-- </form> -->
+        </div>
+    </div>
+</template>
+
+<script>
+    return {
+
+        // Component Data
+        data: function () {
+            // Must return an object
+
+        },
+        // Component Methods
+        methods: {
+
+        },
+
+        // Page Events
+
+        on: {
+
+            pageMounted: function (e, page) {
+                //El evento se activará cuando se inserte una nueva página en DOM. 
+                // O cuando la página con keepAliveruta está montada / adjunta a DOM
+
+            },
+            pageInit: function (e, page) {
+                //El evento se activará después de que Framework7 inicialice 
+                //los componentes de la página requerida y la barra de navegación
+
+                var demoGauge = app.gauge.create({
+                    el: '.demo-gauge',
+                    type: 'circle',
+                    value: 0,
+                    size: 250,
+                    borderColor: '#2196f3',
+                    borderWidth: 10,
+                    valueText: '0%',
+                    valueFontSize: 41,
+                    valueTextColor: '#2196f3',
+                    labelText: 'Pedidos',
+                });
+
+                // Change demo gauge on button click
+                $$('input[type="checkbox"]').on('click', function () {
+                    var checked = $$(this).prop('checked');
+                    console.log('checked', checked);
+                    console.log('gauge', demoGauge);
+                    var value = $$(this).attr('data-value');
+                    if (checked) {
+                        value = demoGauge.params.value + (value / 100);
+                    } else {
+                        value = demoGauge.params.value - (value / 100);
+                    }
+
+                    demoGauge.update({
+                        value: value,
+                        valueText: (value * 100) + '%'
+                    });
+
+                    if (demoGauge.params.value === 1) {
+                        alert('Proceso de pedidos finalizado, para continuar acepte');
+                        app.views.main.router.navigate('/simulator2/');
+                    }
+                });
+
+            },
+            pageReinit: function (e, page) {
+                //Este evento se activará en caso de navegar a la página que ya se ha inicializado.
+
+            },
+
+            pageBeforein: function (e, page) {
+                //El evento se activará cuando todo se inicialice y la página esté lista para pasar a la vista (en la posición activa / actual)
+
+            },
+            pageAfterin: function (e, page) {
+                //El evento se activará después de la transición de la página a la vista   
+            },
+            pageBeforeout: function (e, page) {
+                //El evento se activará justo antes de que la página salga de la vista
+
+            },
+            pageAfterout: function (e, page) {
+                //El evento se activará después de la transición de la página fuera de la vista
+
+            },
+            pageBeforeunmount: function (e, page) {
+                //El evento se activará cuando la página con la keepAliveruta se vaya a desmontar / desmontar de DOM
+
+
+            },
+            pageBeforeremove: function (e, page) {
+                /*El evento se activará justo antes de que se elimine la página de DOM. 
+                Este evento podría ser muy útil si necesita separar 
+                algunos eventos / destruir algunos complementos para liberar memoria. 
+                Este evento no se activará para las keepAliverutas.*/
+
+            }
+
+
+        },
+
+    }
+</script>

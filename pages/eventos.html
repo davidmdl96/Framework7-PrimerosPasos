@@ -1,0 +1,258 @@
+<template>
+  <div class="popup">
+    <div class="view">
+      <div class="page" data-name="infoPartido">
+        <div class="navbar">
+          <div class="navbar-inner sliding">
+              <div class="left">
+                  <a href="#" class="link back">
+                    <i class="icon icon-back"></i>
+                    <span class="ios-only">Back</span>
+                  </a>
+                </div>
+            <div class="title">Eventos DavidMDL</div>
+          </div>
+        </div>
+        <!-- Contenido -->
+        <div class="page-content">
+          <div class="block block-strong">
+            <div class="title">Relllena datos</div>
+          </div>
+          <!-- <form action="" id="miFormulario"> -->
+          <!-- <form id="my-form"> -->
+          <form id="miFormulario">
+            <div class="list">
+              <ul>
+                <li class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-floating-label">Nombre Completo</div>
+                    <div class="item-input-wrap">
+                      <input type="text" name="name" required validate pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{2,50}"
+                        data-error-message="Nombre incorrecto">
+                      <span class="input-clear-button"></span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+              <ul>
+                <li class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-floating-label">Correo</div>
+                    <div class="item-input-wrap">
+                      <input type="email" name="correo" required validate
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" data-error-message="correo incorrecto">
+                      <span class="input-clear-button"></span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul>
+                <li class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-floating-label">Ciudad</div>
+                    <div class="item-input-wrap">
+                      <input type="text" name="ciudad" required validate pattern="[A-z ]{1,50}"
+                        data-error-message="Ciudad incorrecta">
+                      <span class="input-clear-button"></span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul>
+                <li class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-floating-label">DNI</div>
+                    <div class="item-input-wrap">
+                      <input type="text" name="dni" required validate pattern="[0-9]{8}[A-z]{1}"
+                        data-error-message="DNI incorrecto">
+                      <span class="input-clear-button"></span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul>
+                <li class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Coche</div>
+                    <!-- additional "input-dropdown-wrap" class -->
+                    <div class="item-input-wrap input-dropdown-wrap">
+                      <select required>
+                        <option value="escoge">none</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                      </select>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="block block-strong">
+                <div class="title">¿Que te gusta?</div>
+              </div>
+              <ul>
+                <li>
+                  <label class="item-checkbox item-content">
+                    <input type="checkbox" name="demo-checkbox" value="Books" />
+                    <i class="icon icon-checkbox"></i>
+                    <div class="item-inner">
+                      <div class="item-title">Books</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-checkbox item-content">
+                    <input type="checkbox" name="demo-checkbox" value="Movies" />
+                    <i class="icon icon-checkbox"></i>
+                    <div class="item-inner">
+                      <div class="item-title">Movies</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-checkbox item-content">
+                    <input type="checkbox" name="demo-checkbox" value="Food" />
+                    <i class="icon icon-checkbox"></i>
+                    <div class="item-inner">
+                      <div class="item-title">Food</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-checkbox item-content">
+                    <input type="checkbox" name="demo-checkbox" value="Drinks" />
+                    <i class="icon icon-checkbox"></i>
+                    <div class="item-inner">
+                      <div class="item-title">Drinks</div>
+                    </div>
+                  </label>
+                </li>
+              </ul>
+              <div class="block-title">Fecha</div>
+              <div class="list no-hairlines-md">
+                <ul>
+                  <li>
+                    <div class="item-content item-input">
+                      <div class="item-inner">
+                        <div class="item-input-wrap">
+                          <input type="text" placeholder="Select date" name="fecha" readonly="readonly"
+                            id="demo-calendar-modal" required />
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="block block-strong row">
+                <div class="col">
+                  <input class="button" value="Button" @click="enviarDatos">
+                </div>
+              </div>
+            </div>
+          </form>
+          <!-- </form> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  return {
+
+    // Component Data
+    data: function () {
+      // Must return an object
+
+    },
+    // Component Methods
+    methods: {
+
+      enviarDatos: function () {
+        var self = this;
+        var esFormCorrecto = true;
+        //app.input.validateInputs(self.$el);
+        $$('input[type=text], input[type=email]').each(function (elem) {
+          var req = $$(this).prop("required");
+          var name = $$(this).attr("name");
+          console.log("each inputs", req, name);
+          console.log(this);
+          if ($$(this).val() === "" || $$(this).hasClass("input-invalid") === true) {
+            app.input.validate($$(this));
+            esFormCorrecto = false;
+            console.log(esFormCorrecto);
+          } else {
+            console.log(esFormCorrecto);
+
+          }
+        });
+        if (esFormCorrecto = true) {
+
+          var formData = app.form.convertToData('#miFormulario');
+          console.log(formData);
+          alert(JSON.stringify(formData));
+
+        }
+
+
+        // if ($$('input').hasClass("input-invalid") == true){
+        //   alert("Input no válido");
+        // }else{
+        //   var formData = app.form.convertToData('#miFormulario');
+        // alert(JSON.stringify(formData));
+        // }
+        //var aux = app.input.validate($$('input[name=name]').value);
+        //console.log("prueba", aux);
+      },
+    },
+    // Page Events
+
+    on: {
+
+      popupOpened: function (e, page) {
+
+        var calendarModal = app.calendar.create({
+          inputEl: '#demo-calendar-modal',
+          openIn: 'customModal',
+          header: true,
+          footer: true,
+          dateFormat: 'MM dd yyyy',
+        });
+        //alert("evento de cuando se abre el popup");
+        //$$("input[name=name]").on('change', function(e){
+        //console.log("evento change name");
+        //});
+        //$$("input[name=name]").on('input', function(e){
+        // console.log("evento input name");
+        //});
+
+        //$$("input[type=text]").on("input", function(e){
+        // console.log("estas escribiendo en ", $$(this).attr("name"));
+        //console.log("Valor del campo ", $$(this).val());
+        //});
+
+        //$$('input[type=checkbox]').on('change', function(e) {
+        // console.log("checked", $$(this).val());
+        //});
+
+        //evento js
+        //document.getElementById("myInput").addEventListener("input",function(){
+        //  console.log("has escrito en: " + this.name + "  " + this.value);});
+
+      },
+      /*
+      popupOpen: function(e, page) {
+        alert("evento de cuando esta apunto de abrir popup");
+      },
+      popupClosed: function(e, page) {
+        alert("evento de cuando esta cerrado el popup");
+      },
+      popupClose: function(e, page) {
+        alert("evento de cuando esta apunto de cerrar popup");
+      }   
+      */
+    },
+
+  }
+</script>

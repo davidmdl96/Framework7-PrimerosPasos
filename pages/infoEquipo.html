@@ -1,0 +1,37 @@
+<template>
+  <div class="popup">
+    <div class="view">
+      <div class="page" data-name="infoPartido">
+        <div class="navbar">
+          <div class="navbar-inner sliding">
+            <div class="left">
+              <a href="#" class="link back">
+                <i class="icon icon-back"></i>
+                <span class="ios-only">Back</span>
+              </a>
+            </div>
+            <div class="title">Ver información Equipo</div>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="block-title">infoEquipo</div>
+          <div class="block">
+            <div class="list links-list">
+              <ul>
+                <li>
+                  <p>{{infoEquipo.local}}</p>
+                </li>
+                <li>
+                  <p>{{infoEquipo.location}}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div>
+                <a class="button" href="/infoJugadores/">Ver información de jugadores</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
