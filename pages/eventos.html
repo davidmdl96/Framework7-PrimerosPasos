@@ -143,19 +143,20 @@
                     </div>
                   </li>
                 </ul>
+              </div> 
+
+              <div>
+                <canvas id="sig-canvas">
+                  Get a better browser, bro.
+                </canvas>
               </div>
 
               <div>
-                <canvas id="micanvas">Su navegador no soporta canvas :( </canvas>
-                <div>
-                  <p class="button" id="limpiar" style="margin-top: 25px;">Borrar</p>
-                </div>
-                <div>
-                  <fieldset>
-                    <button id="png">Guardar Imagen en PNG</button>
-                  </fieldset>
-                  <img src="" id="laimagen"/>
-                </div>
+                <p class="button" id="limpiar" style="margin-top: 25px;">Borrar</p>
+              </div>
+
+              <div>
+                <p class="button" id="infoCanvas" style="margin-top: 25px;">Ver URL</p>
               </div>
 
 
@@ -238,114 +239,128 @@
         // OBTENER CANVAS ------------------------------------------------------------------------------------------------
 
 
-        var img = document.getElementById("laimagen");
-
-        var png = document.getElementById("png");
-        png.addEventListener("click", function () {
-          var dato = canvas.toDataURL("image/png");
-          dato = dato.replace("image/png", "image/octet-stream");
-          document.location.href = dato;
-        }, false);
-
-
-
-        //CANVAS FIRMA -----------------------------------------------------------------------------------------------------
+        // Set up the canvas
+        var canvas = document.getElementById("sig-canvas");
+        var dataUrl = canvas.toDataURL();
+        var ctx = canvas.getContext("2d");
+        ctx.strokeStyle = "#222222";
+        ctx.lineWith = 2;
 
         var limpiar = document.getElementById("limpiar");
-        var canvas = document.getElementById("micanvas");
-        var ctx = canvas.getContext("2d");
-        var cw = canvas.width = 300,
-          cx = cw / 2;
-        var ch = canvas.height = 300,
-          cy = ch / 2;
+        limpiar.addEventListener("click", function () {
+          canvas.width = canvas.width;
+        }, false);
 
-        var dibujar = false;
-        var factorDeAlisamiento = 5;
-        var Trazados = [];
-        var puntos = [];
-        ctx.lineJoin = "round";
-
-        limpiar.addEventListener('click', function (evt) {
-          dibujar = false;
-          ctx.clearRect(0, 0, cw, ch);
-          Trazados.length = 0;
-          puntos.length = 0;
+        var infoCanvas = document.getElementById("infoCanvas");
+        infoCanvas.addEventListener("click", function () {
+          alert(dataUrl);
         }, false);
 
 
-        canvas.addEventListener('mousedown', function (evt) {
-          dibujar = true;
-          //ctx.clearRect(0, 0, cw, ch);
-          puntos.length = 0;
-          ctx.beginPath();
+        // Lector con el cursor ---------------------------------------------------------------------------------------------------------
 
+        // Set up mouse events for drawing
+        var drawing = false;
+        var mousePos = { x: 0, y: 0 };
+        var lastPos = mousePos;
+        canvas.addEventListener("mousedown", function (e) {
+          drawing = true;
+          lastPos = getMousePos(canvas, e);
+        }, false);
+        canvas.addEventListener("mouseup", function (e) {
+          drawing = false;
+        }, false);
+        canvas.addEventListener("mousemove", function (e) {
+          mousePos = getMousePos(canvas, e);
         }, false);
 
-        canvas.addEventListener('mouseup', function (evt) {
-          redibujarTrazados();
-        }, false);
+        // Get the position of the mouse relative to the canvas
+        function getMousePos(canvasDom, mouseEvent) {
+          var rect = canvasDom.getBoundingClientRect();
+          return {
+            x: mouseEvent.clientX - rect.left,
+            y: mouseEvent.clientY - rect.top
+          };
+        }
 
-        canvas.addEventListener("mouseout", function (evt) {
-          redibujarTrazados();
-        }, false);
 
-        canvas.addEventListener("mousemove", function (evt) {
-          if (dibujar) {
-            var m = oMousePos(canvas, evt);
-            puntos.push(m);
-            ctx.lineTo(m.x, m.y);
+        // Get a regular interval for drawing to the screen
+        window.requestAnimFrame = (function (callback) {
+          return window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimaitonFrame ||
+            function (callback) {
+              window.setTimeout(callback, 1000 / 60);
+            };
+        })();
+
+        // Draw to the canvas
+        function renderCanvas() {
+          if (drawing) {
+            ctx.moveTo(lastPos.x, lastPos.y);
+            ctx.lineTo(mousePos.x, mousePos.y);
             ctx.stroke();
+            lastPos = mousePos;
           }
+        }
+
+        // Allow for animation
+        (function drawLoop() {
+          requestAnimFrame(drawLoop);
+          renderCanvas();
+        })();
+
+        // Lector con el touch ---------------------------------------------------------------------------------------------------------
+        // Set up touch events for mobile, etc
+        canvas.addEventListener("touchstart", function (e) {
+          mousePos = getTouchPos(canvas, e);
+          var touch = e.touches[0];
+          var mouseEvent = new MouseEvent("mousedown", {
+            clientX: touch.clientX,
+            clientY: touch.clientY
+          });
+          canvas.dispatchEvent(mouseEvent);
+        }, false);
+        canvas.addEventListener("touchend", function (e) {
+          var mouseEvent = new MouseEvent("mouseup", {});
+          canvas.dispatchEvent(mouseEvent);
+        }, false);
+        canvas.addEventListener("touchmove", function (e) {
+          var touch = e.touches[0];
+          var mouseEvent = new MouseEvent("mousemove", {
+            clientX: touch.clientX,
+            clientY: touch.clientY
+          });
+          canvas.dispatchEvent(mouseEvent);
         }, false);
 
-        function reducirArray(n, elArray) {
-          var nuevoArray = [];
-          nuevoArray[0] = elArray[0];
-          for (var i = 0; i < elArray.length; i++) {
-            if (i % n == 0) {
-              nuevoArray[nuevoArray.length] = elArray[i];
-            }
+        // Get the position of a touch relative to the canvas
+        function getTouchPos(canvasDom, touchEvent) {
+          var rect = canvasDom.getBoundingClientRect();
+          return {
+            x: touchEvent.touches[0].clientX - rect.left,
+            y: touchEvent.touches[0].clientY - rect.top
+          };
+        }
+
+        // Prevent scrolling when touching the canvas
+        document.body.addEventListener("touchstart", function (e) {
+          if (e.target == canvas) {
+            e.preventDefault();
           }
-          nuevoArray[nuevoArray.length - 1] = elArray[elArray.length - 1];
-          Trazados.push(nuevoArray);
-        }
-
-        function calcularPuntoDeControl(ry, a, b) {
-          var pc = {}
-          pc.x = (ry[a].x + ry[b].x) / 2;
-          pc.y = (ry[a].y + ry[b].y) / 2;
-          return pc;
-        }
-
-        function alisarTrazado(ry) {
-          if (ry.length > 1) {
-            var ultimoPunto = ry.length - 1;
-            ctx.beginPath();
-            ctx.moveTo(ry[0].x, ry[0].y);
-            for (i = 1; i < ry.length - 2; i++) {
-              var pc = calcularPuntoDeControl(ry, i, i + 1);
-              ctx.quadraticCurveTo(ry[i].x, ry[i].y, pc.x, pc.y);
-            }
-            ctx.quadraticCurveTo(ry[ultimoPunto - 1].x, ry[ultimoPunto - 1].y, ry[ultimoPunto].x, ry[ultimoPunto].y);
-            ctx.stroke();
+        }, false);
+        document.body.addEventListener("touchend", function (e) {
+          if (e.target == canvas) {
+            e.preventDefault();
           }
-        }
-
-        function redibujarTrazados() {
-          dibujar = false;
-          ctx.clearRect(0, 0, cw, ch);
-          reducirArray(factorDeAlisamiento, puntos);
-          for (var i = 0; i < Trazados.length; i++)
-            alisarTrazado(Trazados[i]);
-        }
-
-        function oMousePos(canvas, evt) {
-          var ClientRect = canvas.getBoundingClientRect();
-          return { //objeto
-            x: Math.round(evt.clientX - ClientRect.left),
-            y: Math.round(evt.clientY - ClientRect.top)
+        }, false);
+        document.body.addEventListener("touchmove", function (e) {
+          if (e.target == canvas) {
+            e.preventDefault();
           }
-        }
+        }, false);
 
         //FIN CANVAS FIRMA -----------------------------------------------------------------------------------------------------
 
